@@ -5,19 +5,35 @@ body {
   align-items: center;
   margin: 0;
   background-color: darkgray;
+  transform: scale(0.8);
 }
 
-.body {
+.potato {
   display: block;
   width: 290px;
   height: 370px;
   background-color: #cd853f;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   position: relative;
-  // border-top-left-radius: 60%;
-  // border-top-right-radius: 60%;
-  // border-bottom-left-radius: 50%;
-  // border-bottom-right-radius: 50%;
+  &:active .nose, &:active .moustache, &:active .mouth, &:active .foot, &:active .eye, &:active .hat-round {
+    transform: translate(-50%, -50%);
+  }
+  &:active .ear1 {
+    left: -18%;
+    transform: rotate(288deg);
+  }
+  &:active .ear2 {
+    left: 83%;
+    transform: rotate(71deg);
+  }  
+}
+
+.hoverme {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .hat-round {
@@ -26,46 +42,21 @@ body {
   background-color: black;
   border-top-left-radius: 180px;
   border-top-right-radius: 180px;
-  position: absolute;
-  top: -5%;
+  position: relative;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.hat-border {
-  height: 40px;
-  width: 230px;
-  background-color: black;
-  border-radius: 50px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 10%;
-  left: 50%;
-}
-
-.nose {
-  height: 60px;
-  width: 100px;
-  background-color: red;
-  border-radius: 90px / 60px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 49%;
-  left: 50%;
-  z-index: 2;
-}
-
-.moustache {
-  height: 0;
-  width: 120px;
-  border-right: 50px solid transparent;
-  border-left: 50px solid transparent;
-  border-bottom: 50px solid black;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 60%;
-  left: 50%;
-  z-index: 1;
+  transform: translate(-70%, 450%);
+  transition: transform ease 1.5s;
+  .hat-border {
+    height: 40px;
+    width: 230px;
+    background-color: black;
+    border-radius: 50px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+  }
 }
 
 .eye {
@@ -74,9 +65,30 @@ body {
   background-color: white;
   border-radius: 50px / 60px;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-450%, 410%);
   top: 30%;
   z-index: 2;
+  transition: transform ease 1.5s;
+  .pupil {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    position: absolute;
+    top: 70%;
+    left: 58%;
+    .catchlight {
+      height: 10px;
+      width: 10px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 40%;
+      left: 20%;
+    }
+  }
 }
 
 .eye1 {
@@ -87,28 +99,44 @@ body {
   left: 65%;
 }
 
-.pupil {
-  height: 50px;
-  width: 50px;
-  background-color: black;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+.nose {
+  height: 60px;
+  width: 100px;
+  background-color: red;
+  border-radius: 90px / 60px;
   position: absolute;
-  top: 70%;
-  left: 58%;
+  transform: translate(180%, -470%);
+  top: 49%;
+  left: 50%;
+  z-index: 2;
+  transition: transform ease 1.5s;
+}
+
+.moustache {
+  height: 0;
+  width: 120px;
+  border-right: 50px solid transparent;
+  border-left: 50px solid transparent;
+  border-bottom: 50px solid black;
+  position: absolute;
+  transform: translate(-140%, -645%);
+  top: 60%;
+  left: 50%;
+  z-index: 1;
+  transition: transform ease 1.5s;
 }
 
 .mouth {
-  display: block;
   width: 150px;
   height: 55px;
   background-color: white;
   border-bottom-left-radius: 150px;
   border-bottom-right-radius: 150px;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(65%, 350%);
   left: 50%;
   top: 73%;
+  transition: transform ease 1.5s;
 }
 
 .ear {
@@ -116,21 +144,11 @@ body {
   width: 100px;
   background-color: pink;
   border-top-left-radius: 100px;
-  border-top-right-radius: 100px;;
+  border-top-right-radius: 100px;
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(410%, 750%);
   z-index: -1;
-  top: 24%;
-}
-
-.ear1 {
-  left: -18%;
-  transform: rotate(288deg);
-}
-
-.ear2 {
-  left: 83%;
-  transform: rotate(71deg)
+  transition: transform ease 1.5s;
 }
 
 .foot {
@@ -141,8 +159,9 @@ body {
   border-top-right-radius: 180px;
   position: absolute;
   top: 102%;
-  transform: translate(-50%, -50%);
+  transform: translate(-10%, -710%);
   z-index: -1;
+  transition: transform ease 1.5s;
 }
 
 .foot1 {
@@ -151,17 +170,6 @@ body {
 
 .foot2 {
   left: 70%;
-}
-
-.catchlight {
-  height: 10px;
-  width: 10px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 40%;
-  left: 20%;
 }
 
 .upper {
@@ -220,18 +228,3 @@ body {
   top: 81%;
   left: 138%;
 }
-
-// .thumb {
-//   height: 30px;
-//   width: 50px;
-//   background-color: white;
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   border-radius: 50px;
-// }
-
-// .thumb1 {
-//   top: 20%;
-//   left: -45%;
-//   transform: rotate(5deg);
-// }
